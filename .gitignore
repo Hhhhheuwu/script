@@ -1,41 +1,39 @@
-# Compiled Lua sources
-luac.out
+-- script by !           Y1idk#4160
+-- my server discord ; https://discord.gg/8KHs7CCYBp
+-- enjoy
 
-# luarocks build files
-*.src.rock
-*.zip
-*.tar.gz
+if Game.PlaceId == 3829055572 then
+local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/xHeptc/Kavo-UI-Library/main/source.lua"))()
 
-# Object files
-*.o
-*.os
-*.ko
-*.obj
-*.elf
+local Window = Library.CreateLib("Y1idk hub",
+"BloodTheme")
+    
+local main = Window:NewTab("main")
+    local player = Window:NewTab("player")
+    local owner = Window:NewTab("owner")
+    
+local mainSection = main:NewSection("main")
+    local playerSection = player:NewSection("player")
+    local ownerSection = owner:NewSection("owner")
 
-# Precompiled Headers
-*.gch
-*.pch
+   
+mainSection:NewKeybind("show/hide", "show/hide", Enum.KeyCode.F, function()
+	Library:ToggleUI()
+end)
+    
+playerSection:NewSlider("walk speed", "walk speed", 250, 16, function(s) 
+    game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = s
+end)
 
-# Libraries
-*.lib
-*.a
-*.la
-*.lo
-*.def
-*.exp
+playerSection:NewSlider("JumpPower", "jumpPower", 500, 50, function(s) 
+    game.Players.LocalPlayer.Character.Humanoid.JumpPower = s
+        end)
 
-# Shared objects (inc. Windows DLLs)
-*.dll
-*.so
-*.so.*
-*.dylib
 
-# Executables
-*.exe
-*.out
-*.app
-*.i*86
-*.x86_64
-*.hex
 
+ownerSection:NewButton("Discord Creator Account Name ;!Y1idk#4160 ", "Discord Creator Account Name", function()
+    print("Clicked")
+end)
+
+
+end
